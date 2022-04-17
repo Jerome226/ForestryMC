@@ -250,6 +250,16 @@ public enum Fluids {
 			);
 		}
 	},
+	FRESHWATER(new Color(0x4c58ad)) {
+		@Override
+		public EnumSet<EnumContainerType> getContainerTypes() {
+			return EnumSet.of(
+					EnumContainerType.CAN,
+					EnumContainerType.CAPSULE,
+					EnumContainerType.REFRACTORY
+			);
+		}
+	},
 	LAVA(new Color(0xfd461f)) {
 		@Override
 		public EnumSet<EnumContainerType> getContainerTypes() {

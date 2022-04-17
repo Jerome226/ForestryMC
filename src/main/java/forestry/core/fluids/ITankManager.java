@@ -10,6 +10,8 @@
  ******************************************************************************/
 package forestry.core.fluids;
 
+import com.dunk.tfc.api.TFCFluids;
+
 import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayerMP;
