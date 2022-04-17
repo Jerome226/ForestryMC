@@ -134,13 +134,14 @@ public abstract class ItemStackUtil {
 	 * Counts how many full sets are contained in the passed stock
 	 */
 	public static int containsSets(ItemStack[] set, ItemStack[] stock) {
-		return containsSets(set, stock, false, false);
+		return containsSets(set, stock, oreDictionary, craftingTools, false);
 	}
 
 	/**
 	 * Counts how many full sets are contained in the passed stock
 	 */
-	public static int containsSets(ItemStack[] set, ItemStack[] stock, boolean oreDictionary, boolean craftingTools) {
+
+	public static int containsSets(ItemStack[] set, ItemStack[] stock, boolean oreDictionary, boolean craftingTools, boolean matchTags) {
 		int totalSets = 0;
 
 		ItemStack[] condensedRequired = ItemStackUtil.condenseStacks(set);
@@ -150,7 +151,7 @@ public abstract class ItemStackUtil {
 
 			int reqCount = 0;
 			for (ItemStack offer : condensedOffered) {
-				if (isCraftingEquivalent(req, offer, oreDictionary, craftingTools)) {
+				if (isCraftingEquivalent(req, offer, oreDictionary, craftingTools) && (matchTags ? ItemStack.areItemStackTagsEqual(req, offer) : true)) {
 					int stackCount = (int) Math.floor(offer.stackSize / req.stackSize);
 					reqCount = Math.max(reqCount, stackCount);
 				}
