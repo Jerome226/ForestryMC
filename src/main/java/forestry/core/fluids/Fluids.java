@@ -46,15 +46,6 @@ public enum Fluids {
 			return new BlockForestryFluid(this, 300, true);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	BIOMASS(new Color(100, 132, 41), 400, 6560) {
 		@Override
@@ -62,15 +53,6 @@ public enum Fluids {
 			return new BlockForestryFluid(this, 100, true);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	GLASS(new Color(164, 164, 164), 2400, 10000) {
 		@Override
@@ -83,12 +65,6 @@ public enum Fluids {
 			return new BlockForestryFluid(this, 0, true);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET
-			);
-		}
 	},
 	HONEY(new Color(255, 196, 35), 1420, 73600) {
 		@Override
@@ -99,16 +75,6 @@ public enum Fluids {
 		@Override
 		public Block makeBlock() {
 			return new BlockForestryFluid(this);
-		}
-
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
 		}
 
 		@Override
@@ -135,15 +101,6 @@ public enum Fluids {
 			return new BlockForestryFluid(this);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	JUICE(new Color(168, 201, 114)) {
 		@Override
@@ -151,22 +108,6 @@ public enum Fluids {
 			return new BlockForestryFluid(this);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
-
-		@Override
-		public void setProperties(ItemLiquidContainer liquidContainer) {
-			if (liquidContainer.getType() != EnumContainerType.BUCKET) {
-				liquidContainer.setDrink(Constants.FOOD_JUICE_HEAL, Constants.FOOD_JUICE_SATURATION);
-			}
-		}
 	},
 	MILK(new Color(255, 255, 255), 1030, 3000) {
 		@Override
@@ -187,15 +128,6 @@ public enum Fluids {
 			return new BlockForestryFluid(this, 2, true);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	SHORT_MEAD("ShortMead", new Color(239, 154, 56), 1000, 1200) {
 		@Override
@@ -208,15 +140,6 @@ public enum Fluids {
 			return new BlockForestryFluid(this);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	MEAD("Mead", new Color(202, 102, 0), 1000, 1200) {
 		@Override
@@ -229,45 +152,13 @@ public enum Fluids {
 			return new BlockForestryFluid(this);
 		}
 
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.BUCKET,
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	// Vanilla
 	WATER(new Color(0x2432ec)) {
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	FRESHWATER(new Color(0x4c58ad)) {
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.CAN,
-					EnumContainerType.CAPSULE,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	LAVA(new Color(0xfd461f)) {
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
-					EnumContainerType.CAN,
-					EnumContainerType.REFRACTORY
-			);
-		}
 	},
 	// BuildCraft
 	FUEL(new Color(0xffff00)) {

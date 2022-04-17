@@ -41,16 +41,6 @@ public abstract class RecipeUtil {
 		if (RecipeManagers.fermenterManager == null) {
 			return;
 		}
-
-		RecipeManagers.fermenterManager.addRecipe(resource, fermentationValue, 1.0f, output.getFluid(1), Fluids.WATER.getFluid(1));
-
-		if (FluidRegistry.isFluidRegistered(Fluids.JUICE.getFluid())) {
-			RecipeManagers.fermenterManager.addRecipe(resource, fermentationValue, 1.5f, output.getFluid(1), Fluids.JUICE.getFluid(1));
-		}
-
-		if (FluidRegistry.isFluidRegistered(Fluids.HONEY.getFluid())) {
-			RecipeManagers.fermenterManager.addRecipe(resource, fermentationValue, 1.5f, output.getFluid(1), Fluids.HONEY.getFluid(1));
-		}
 	}
 
 	/**
