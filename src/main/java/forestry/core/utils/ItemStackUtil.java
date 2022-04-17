@@ -134,13 +134,19 @@ public abstract class ItemStackUtil {
 	 * Counts how many full sets are contained in the passed stock
 	 */
 	public static int containsSets(ItemStack[] set, ItemStack[] stock) {
+		return containsSets(set, stock, false, false);
+	}
+
+	/**
+	 * Counts how many full sets are contained in the passed stock
+	 */
+	public static int containsSets(ItemStack[] set, ItemStack[] stock, boolean oreDictionary, boolean craftingTools) {
 		return containsSets(set, stock, oreDictionary, craftingTools, false);
 	}
 
 	/**
 	 * Counts how many full sets are contained in the passed stock
 	 */
-
 	public static int containsSets(ItemStack[] set, ItemStack[] stock, boolean oreDictionary, boolean craftingTools, boolean matchTags) {
 		int totalSets = 0;
 

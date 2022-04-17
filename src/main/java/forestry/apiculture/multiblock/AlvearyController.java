@@ -53,6 +53,7 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 
 	private final InventoryBeeHousing inventory;
 	private final IBeekeepingLogic beekeepingLogic;
+
 	private float tempChange = 0.0f;
 	private float humidChange = 0.0f;
 
@@ -357,6 +358,7 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 
 	@Override
 	public EnumTemperature getTemperature() {
+		IBeeModifier beeModifier = BeeManager.beeRoot.createBeeHousingModifier(this);
 		BiomeGenBase biome = getBiome();
 		if (beeModifier.isHellish() || BiomeHelper.isBiomeHellish(biome)) {
 			if (tempChange >= 0) {

@@ -12,8 +12,6 @@ package forestry.factory.tiles;
 
 import java.io.IOException;
 
-import com.dunk.tfc.api.TFCFluids;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
@@ -46,9 +44,8 @@ import forestry.factory.gui.ContainerRaintank;
 import forestry.factory.gui.GuiRaintank;
 import forestry.factory.inventory.InventoryRaintank;
 
-
 public class TileRaintank extends TileBase implements ISidedInventory, ILiquidTankTile, IFluidHandler {
-	private static final FluidStack STACK_WATER = Fluids.FRESHWATER.getFluid(Constants.RAINTANK_AMOUNT_PER_UPDATE);
+	private static final FluidStack STACK_WATER = Fluids.WATER.getFluid(Constants.RAINTANK_AMOUNT_PER_UPDATE);
 
 	private final FilteredTank resourceTank;
 	private final TankManager tankManager;
@@ -60,7 +57,7 @@ public class TileRaintank extends TileBase implements ISidedInventory, ILiquidTa
 		super("raintank");
 		setInternalInventory(new InventoryRaintank(this));
 
-		resourceTank = new FilteredTank(Constants.RAINTANK_TANK_CAPACITY, TFCFluids.FRESHWATER);
+		resourceTank = new FilteredTank(Constants.RAINTANK_TANK_CAPACITY, FluidRegistry.WATER);
 		tankManager = new TankManager(this, resourceTank);
 	}
 
@@ -136,14 +133,14 @@ public class TileRaintank extends TileBase implements ISidedInventory, ILiquidTa
 		}
 
 		if (!isFilling()) {
-			FluidHelper.FillStatus canFill = FluidHelper.fillContainers(tankManager, this, InventoryRaintank.SLOT_RESOURCE, InventoryRaintank.SLOT_PRODUCT, Fluids.FRESHWATER.getFluid(), false);
+			FluidHelper.FillStatus canFill = FluidHelper.fillContainers(tankManager, this, InventoryRaintank.SLOT_RESOURCE, InventoryRaintank.SLOT_PRODUCT, Fluids.WATER.getFluid(), false);
 			if (canFill == FluidHelper.FillStatus.SUCCESS) {
 				fillingTime = Constants.RAINTANK_FILLING_TIME;
 			}
 		} else {
 			fillingTime--;
 			if (fillingTime <= 0) {
-				FluidHelper.FillStatus filled = FluidHelper.fillContainers(tankManager, this, InventoryRaintank.SLOT_RESOURCE, InventoryRaintank.SLOT_PRODUCT, Fluids.FRESHWATER.getFluid());
+				FluidHelper.FillStatus filled = FluidHelper.fillContainers(tankManager, this, InventoryRaintank.SLOT_RESOURCE, InventoryRaintank.SLOT_PRODUCT, Fluids.WATER.getFluid());
 				if (filled == FluidHelper.FillStatus.SUCCESS) {
 					fillingTime = 0;
 				}

@@ -10,8 +10,6 @@
  ******************************************************************************/
 package forestry.core.fluids;
 
-import com.dunk.tfc.api.TFCFluids;
-
 import javax.annotation.Nonnull;
 import java.awt.Color;
 import java.util.Collections;
@@ -213,22 +211,36 @@ public enum Fluids {
 		@Override
 		public EnumSet<EnumContainerType> getContainerTypes() {
 			return EnumSet.of(
-					EnumContainerType.BUCKET
-			);
-		}
-	},
-	// Vanilla
-	WATER(new Color(0x2432ec)) {
-		@Override
-		public EnumSet<EnumContainerType> getContainerTypes() {
-			return EnumSet.of(
+					EnumContainerType.BUCKET,
 					EnumContainerType.CAN,
 					EnumContainerType.CAPSULE,
 					EnumContainerType.REFRACTORY
 			);
 		}
 	},
-	FRESHWATER(new Color(0x4c58ad)) {
+	MEAD("Mead", new Color(202, 102, 0), 1000, 1200) {
+		@Override
+		public String getTag() {
+			return "mead";
+		}
+
+		@Override
+		public Block makeBlock() {
+			return new BlockForestryFluid(this);
+		}
+
+		@Override
+		public EnumSet<EnumContainerType> getContainerTypes() {
+			return EnumSet.of(
+					EnumContainerType.BUCKET,
+					EnumContainerType.CAN,
+					EnumContainerType.CAPSULE,
+					EnumContainerType.REFRACTORY
+			);
+		}
+	},
+	// Vanilla
+	WATER(new Color(0x2432ec)) {
 		@Override
 		public EnumSet<EnumContainerType> getContainerTypes() {
 			return EnumSet.of(
@@ -272,7 +284,7 @@ public enum Fluids {
 	CREOSOTE(new Color(0x635c03)),
 	STEAM(new Color(0x91938F));
 
-	public static final Fluids[] forestryFluids = {ETHANOL, BIOMASS, GLASS, HONEY, LEGACY_HONEY, ICE, JUICE, MILK, SEEDOIL, SHORT_MEAD};
+	public static final Fluids[] forestryFluids = {ETHANOL, BIOMASS, GLASS, HONEY, LEGACY_HONEY, ICE, JUICE, MILK, SEEDOIL, SHORT_MEAD, MEAD};
 
 	private static final Map<String, Fluids> tagToFluid = new HashMap<>();
 
