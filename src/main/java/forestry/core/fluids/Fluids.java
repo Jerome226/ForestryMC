@@ -10,6 +10,8 @@
  ******************************************************************************/
 package forestry.core.fluids;
 
+import com.dunk.tfc.api.TFCFluids;
+
 import javax.annotation.Nonnull;
 import java.awt.Color;
 import java.util.Collections;
@@ -217,6 +219,16 @@ public enum Fluids {
 	},
 	// Vanilla
 	WATER(new Color(0x2432ec)) {
+		@Override
+		public EnumSet<EnumContainerType> getContainerTypes() {
+			return EnumSet.of(
+					EnumContainerType.CAN,
+					EnumContainerType.CAPSULE,
+					EnumContainerType.REFRACTORY
+			);
+		}
+	},
+	FRESHWATER(new Color(0x4c58ad)) {
 		@Override
 		public EnumSet<EnumContainerType> getContainerTypes() {
 			return EnumSet.of(
