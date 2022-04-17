@@ -129,6 +129,7 @@ public class PluginCore extends ForestryPlugin {
 	protected void registerCrates() {
 		ICrateRegistry crateRegistry = StorageManager.crateRegistry;
 
+		/*
 		// forestry items
 		crateRegistry.registerCrate(items.peat, "cratedPeat");
 		crateRegistry.registerCrate(items.apatite, "cratedApatite");
@@ -188,27 +189,23 @@ public class PluginCore extends ForestryPlugin {
 		crateRegistry.registerCrate(new ItemStack(Blocks.sapling, 1, 3), "cratedJungleSapling");
 		crateRegistry.registerCrate(new ItemStack(Blocks.sapling, 1, 4), "cratedAcaciaSapling");
 		crateRegistry.registerCrate(new ItemStack(Blocks.sapling, 1, 5), "cratedDarkOakSapling");
+		*/
+
 	}
 
 	@Override
 	protected void registerRecipes() {
-
-		/* SMELTING RECIPES */
+		/*
 		RecipeUtil.addSmelting(blocks.resources.get(BlockResourceOre.ResourceType.APATITE, 1), items.apatite, 0.5f);
 		RecipeUtil.addSmelting(blocks.resources.get(BlockResourceOre.ResourceType.COPPER, 1), items.ingotCopper, 0.5f);
 		RecipeUtil.addSmelting(blocks.resources.get(BlockResourceOre.ResourceType.TIN, 1), items.ingotTin, 0.5f);
 		RecipeUtil.addSmelting(new ItemStack(items.peat), items.ash, 0.0f);
 
-		/* BRONZE INGOTS */
 		if (Config.isCraftingBronzeEnabled()) {
 			RecipeUtil.addShapelessRecipe(new ItemStack(items.ingotBronze, 4), "ingotTin", "ingotCopper", "ingotCopper", "ingotCopper");
 		}
 
-		/* STURDY MACHINE */
 		RecipeUtil.addRecipe(items.sturdyCasing, "###", "# #", "###", '#', "ingotBronze");
-
-		// / EMPTY CANS
-		RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.can"), " # ", "# #", '#', "ingotTin");
 
 		// / GEARS
 		ArrayList<ItemStack> stoneGear = OreDictionary.getOres("gearStone");
@@ -228,7 +225,6 @@ public class PluginCore extends ForestryPlugin {
 		RecipeUtil.addShapelessRecipe(items.kitPickaxe, items.bronzePickaxe, items.carton);
 		RecipeUtil.addShapelessRecipe(items.kitShovel, items.bronzeShovel, items.carton);
 
-		/* NATURALIST'S ARMOR */
 		RecipeUtil.addRecipe(items.spectacles, " X ", "Y Y", 'X', "ingotBronze", 'Y', "paneGlass");
 
 		// / WRENCH
@@ -288,6 +284,7 @@ public class PluginCore extends ForestryPlugin {
 
 		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.BRONZE), "###", "###", "###", '#', "ingotBronze");
 		RecipeUtil.addShapelessRecipe(new ItemStack(items.ingotBronze, 9), "blockBronze");
+		*/
 	}
 
 	@Override
