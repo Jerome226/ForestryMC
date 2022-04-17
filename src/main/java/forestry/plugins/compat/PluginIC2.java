@@ -211,35 +211,6 @@ public class PluginIC2 extends ForestryPlugin {
 		}
 	}
 
-	@Override
-	@Optional.Method(modid = "IC2")
-	protected void registerCrates() {
-		ICrateRegistry crateRegistry = StorageManager.crateRegistry;
-		if (resin != null) {
-			crateRegistry.registerCrate(resin, "cratedResin");
-		}
-
-		if (rubber != null) {
-			crateRegistry.registerCrate(rubber, "cratedRubber");
-		}
-
-		if (scrap != null) {
-			crateRegistry.registerCrate(scrap, "cratedScrap");
-		}
-
-		if (uuMatter != null) {
-			crateRegistry.registerCrate(uuMatter, "cratedUUM");
-		}
-
-		if (silver != null) {
-			crateRegistry.registerCrateUsingOreDict(silver, "cratedSilver");
-		}
-
-		if (brass != null) {
-			crateRegistry.registerCrateUsingOreDict(brass, "cratedBrass");
-		}
-	}
-
 	@Optional.Method(modid = "IC2")
 	protected void registerRecipes() {
 

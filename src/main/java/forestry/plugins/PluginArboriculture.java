@@ -190,18 +190,6 @@ public class PluginArboriculture extends ForestryPlugin {
 	}
 
 	@Override
-	protected void registerCrates() {
-		ICrateRegistry crateRegistry = StorageManager.crateRegistry;
-		crateRegistry.registerCrate(EnumFruit.CHERRY.getStack(), "cratedCherry");
-		crateRegistry.registerCrate(EnumFruit.WALNUT.getStack(), "cratedWalnut");
-		crateRegistry.registerCrate(EnumFruit.CHESTNUT.getStack(), "cratedChestnut");
-		crateRegistry.registerCrate(EnumFruit.LEMON.getStack(), "cratedLemon");
-		crateRegistry.registerCrate(EnumFruit.PLUM.getStack(), "cratedPlum");
-		crateRegistry.registerCrate(EnumFruit.PAPAYA.getStack(), "cratedPapaya");
-		crateRegistry.registerCrate(EnumFruit.DATES.getStack(), "cratedDates");
-	}
-
-	@Override
 	protected void registerRecipes() {
 
 		RecipeUtil.addSmelting(new ItemStack(blocks.logs, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.coal, 1, 1), 0.15F);

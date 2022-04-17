@@ -390,33 +390,6 @@ public class PluginApiculture extends ForestryPlugin {
 	}
 
 	@Override
-	protected void registerCrates() {
-		ICrateRegistry crateRegistry = StorageManager.crateRegistry;
-		crateRegistry.registerCrate(PluginCore.items.beeswax.getItemStack(), "cratedBeeswax");
-		crateRegistry.registerCrate(items.pollenCluster.get(EnumPollenCluster.NORMAL, 1), "cratedPollen");
-		crateRegistry.registerCrate(items.pollenCluster.get(EnumPollenCluster.CRYSTALLINE, 1), "cratedCrystallinePollen");
-		crateRegistry.registerCrate(items.propolis.getItemStack(), "cratedPropolis");
-		crateRegistry.registerCrate(items.honeydew.getItemStack(), "cratedHoneydew");
-		crateRegistry.registerCrate(items.royalJelly.getItemStack(), "cratedRoyalJelly");
-
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.HONEY, 1), "cratedHoneycombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.COCOA, 1), "cratedCocoaComb");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.SIMMERING, 1), "cratedSimmeringCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.STRINGY, 1), "cratedStringyCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.FROZEN, 1), "cratedFrozenCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.DRIPPING, 1), "cratedDrippingCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.SILKY, 1), "cratedSilkyCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.PARCHED, 1), "cratedParchedCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.MYSTERIOUS, 1), "cratedMysteriousCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.POWDERY, 1), "cratedPowderyCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.WHEATEN, 1), "cratedWheatenCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.MOSSY, 1), "cratedMossyCombs");
-		crateRegistry.registerCrate(items.beeComb.get(EnumHoneyComb.MELLOW, 1), "cratedMellowCombs");
-
-		crateRegistry.registerCrate(PluginCore.items.refractoryWax.getItemStack(), "cratedRefractoryWax");
-	}
-
-	@Override
 	protected void registerRecipes() {
 
 		// / APIARIST'S ARMOR
