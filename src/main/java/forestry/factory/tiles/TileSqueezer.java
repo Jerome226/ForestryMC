@@ -12,6 +12,7 @@ package forestry.factory.tiles;
 
 import java.io.IOException;
 
+import cpw.mods.fml.common.Loader;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -129,12 +130,17 @@ public class TileSqueezer extends TilePowered implements ISocketable, ISidedInve
 
 	@Override
 	public boolean workCycle() {
+		Float foodWeight = getFoodWeight();
+		
 		EntityPlayer player = PlayerUtil.getPlayer(worldObj, getAccessHandler().getOwner());
 		if (!inventory.removeResources(currentRecipe.getResources(), player)) {
 			return false;
 		}
 
 		FluidStack resultFluid = currentRecipe.getFluidOutput();
+		if(foodWeight != null) {
+			resultFluid = new FluidStack(resultFluid, (int)(resultFluid.amount * foodWeight));
+		}
 		productTank.fill(resultFluid, true);
 
 		if (currentRecipe.getRemnants() != null && (worldObj.rand.nextFloat() < currentRecipe.getRemnantsChance())) {
@@ -182,7 +188,11 @@ public class TileSqueezer extends TilePowered implements ISocketable, ISidedInve
 		if (hasResources) {
 			hasRecipe = (currentRecipe != null);
 			if (hasRecipe) {
+				Float foodWeight = getFoodWeight();
 				FluidStack resultFluid = currentRecipe.getFluidOutput();
+				if(foodWeight != null) {
+					resultFluid = new FluidStack(resultFluid, (int)(resultFluid.amount * foodWeight));
+				}
 				canFill = productTank.canFill(resultFluid);
 
 				if (currentRecipe.getRemnants() != null) {
@@ -293,5 +303,23 @@ public class TileSqueezer extends TilePowered implements ISocketable, ISidedInve
 	@Override
 	public Object getContainer(EntityPlayer player, int data) {
 		return new ContainerSqueezer(player.inventory, this);
+	}
+	
+	/* gets the weight of food if any. if no food is found returns -1*/
+	public Float getFoodWeight() {
+		Float foodWeight = null;
+		if(Loader.isModLoaded("terrafirmacraftplus")) {
+			for(ItemStack stack : inventory.getResources()) {
+				if(stack != null && stack.hasTagCompound() && stack.getTagCompound().hasKey("foodWeight")) {
+					if(foodWeight == null) {
+						foodWeight = stack.getTagCompound().getFloat("foodWeight");
+					}
+					else {
+						foodWeight += stack.getTagCompound().getFloat("foodWeight");
+					}
+				}
+			}
+		}
+		return foodWeight;
 	}
 }
