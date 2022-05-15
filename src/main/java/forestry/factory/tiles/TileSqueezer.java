@@ -305,21 +305,22 @@ public class TileSqueezer extends TilePowered implements ISocketable, ISidedInve
 		return new ContainerSqueezer(player.inventory, this);
 	}
 	
-	/* gets the weight of food if any. if no food is found returns -1*/
+	/* gets the weight of food if any. if no food is found returns null*/
 	public Float getFoodWeight() {
-		Float foodWeight = null;
 		if(Loader.isModLoaded("terrafirmacraftplus")) {
 			for(ItemStack stack : inventory.getResources()) {
-				if(stack != null && stack.hasTagCompound() && stack.getTagCompound().hasKey("foodWeight")) {
-					if(foodWeight == null) {
-						foodWeight = stack.getTagCompound().getFloat("foodWeight");
+				if(stack != null) {
+					if (stack.hasTagCompound() && stack.getTagCompound().hasKey("foodWeight")) {
+						// the first stack encountered is the one used by the recipe
+						float foodWeight = stack.getTagCompound().getFloat("foodWeight");
+						return foodWeight;
 					}
 					else {
-						foodWeight += stack.getTagCompound().getFloat("foodWeight");
+						return null; // non food item encountered. For safety from duping fluid we exit
 					}
 				}
 			}
 		}
-		return foodWeight;
+		return null;
 	}
 }
