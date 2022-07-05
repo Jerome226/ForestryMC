@@ -50,22 +50,8 @@ public class NEIIntegrationConfig implements IConfigureNEI {
 		CustomOverlayHandler handler = new CustomOverlayHandler(-14, 14, true);
 		API.registerGuiOverlayHandler(GuiWorktable.class, handler, "crafting");
 
-		API.addSubset("Forestry.Bees.Princesses", new ItemFilterGenetic(BeeManager.beeRoot, EnumBeeType.PRINCESS.ordinal(), true));
-		API.addSubset("Forestry.Bees.Drones", new ItemFilterGenetic(BeeManager.beeRoot, EnumBeeType.DRONE.ordinal(), true));
-		API.addSubset("Forestry.Bees.Larvae", new ItemFilterGenetic(BeeManager.beeRoot, EnumBeeType.LARVAE.ordinal(), true));
-
-		API.addSubset("Forestry.Trees.Saplings", new ItemFilterGenetic(TreeManager.treeRoot, EnumGermlingType.SAPLING.ordinal(), true));
-		API.addSubset("Forestry.Trees.Pollen", new ItemFilterGenetic(TreeManager.treeRoot, EnumGermlingType.POLLEN.ordinal(), true));
-
-		API.addSubset("Forestry.Butterflies.Butterflies", new ItemFilterGenetic(ButterflyManager.butterflyRoot, EnumFlutterType.BUTTERFLY.ordinal(), true));
-		API.addSubset("Forestry.Butterflies.Caterpillars", new ItemFilterGenetic(ButterflyManager.butterflyRoot, EnumFlutterType.CATERPILLAR.ordinal(), true));
-		API.addSubset("Forestry.Butterflies.Serum", new ItemFilterGenetic(ButterflyManager.butterflyRoot, EnumFlutterType.SERUM.ordinal(), true));
-
-		API.addSubset("Forestry.Bees.Combs", OreDictionary.getOres("beeComb"));
-		API.addSubset("Forestry.Blocks", new ItemFilterOther(false));
-		API.addSubset("Forestry.Items", new ItemFilterOther(true));
 	}
-
+                                     
 	protected static void registerHandler(IRecipeHandlerBase handler) {
 		handler.prepare();
 		API.registerRecipeHandler(handler);
